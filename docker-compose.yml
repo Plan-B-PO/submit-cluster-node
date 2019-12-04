@@ -1,0 +1,36 @@
+version: "3.0"
+
+services:
+
+  backend-file:
+    build:
+      context: ./verificator
+      dockerfile: Dockerfile
+    depends_on:
+      - redis-file
+    environment:
+      server.servlet.context-path: /
+      spring.redis.url: redis-file
+    ports:
+      - 8080:8080
+
+  redis-file:
+    image: "redis:alpine"
+    hostname: redis-file
+    ports:
+      - "6379:6379"
+    expose:
+      - 6379
+
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis-file:6379
+    ports:
+      - 8081:8081
+
+

@@ -1,0 +1,3 @@
+rootProject.name = 'submit-cluster-node'
+include 'verificator'
+

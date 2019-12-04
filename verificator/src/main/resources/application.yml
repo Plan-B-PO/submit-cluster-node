@@ -1,0 +1,16 @@
+swagger:
+  api:
+    title: Verificator
+    description: Backend
+    version: 1
+    controller:
+      basepackage: pl.ee.verificator.application.rest
+
+spring:
+  redis:
+    url: localhost
+
+app:
+  machine-manager-url: http://192.168.0.66
+server:
+  port: 5555
