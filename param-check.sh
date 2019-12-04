@@ -16,4 +16,4 @@ LOCAL=$(df --output=avail -h "$PWD" | sed '1d;s/[^0-9]//g')
 
 JSON=$(echo "{token: ${TOKEN}, cpu: ${CPU}, gpu: ${GPU}, memory: ${MEM}, local_storage: ${LOCAL}}")
 
-curl -d "$JSON" -H "Content-Type: application/json" -X PUT http://localhost:5555/verificator
+curl -d "$JSON" -H "Content-Type: application/json" -X PUT http://localhost:8080/verificator
